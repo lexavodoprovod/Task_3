@@ -1,0 +1,7 @@
+17:12:48.512 [main] INFO  com.hololeenko.task3.application.Main - My map {Customer{name='Smith John', email='john.smith@example.com'}=[Book{bookName='To Kill a Mockingbird', bookAuthor='Harper Lee'}, Book{bookName='1984', bookAuthor='George Orwell'}]}
+17:12:48.512 [pool-2-thread-3] INFO  com.hololeenko.task3.entity.Customer - The beginning of book distribution for customer "Garcia Carlos"
+17:12:48.512 [pool-2-thread-2] INFO  com.hololeenko.task3.entity.Customer - The beginning of book distribution for customer "Johnson Emily"
+17:12:48.520 [pool-2-thread-3] INFO  hololeenko.task3.state.impl.AvailableStateImpl - Customer "Garcia Carlos" borrowed a book "The Great Gatsby"
+17:12:50.521 [pool-2-thread-3] INFO  hololeenko.task3.state.impl.AvailableStateImpl - Customer "Garcia Carlos" borrowed a book "Pride and Prejudice"
+17:12:52.528 [pool-2-thread-2] INFO  hololeenko.task3.state.impl.AvailableStateImpl - Customer "Johnson Emily" borrowed a book "The Catcher in the Rye"
+17:12:54.529 [pool-2-thread-2] INFO  hololeenko.task3.state.impl.AvailableStateImpl - Customer "Johnson Emily" borrowed a book "The Lord of the Rings"

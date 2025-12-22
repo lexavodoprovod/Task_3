@@ -1,0 +1,3 @@
+Smith John-john.smith@example.com
+Johnson Emily-emily.j2024@mailservice.org
+Garcia Carlos-c.garcia@corporation.net
