@@ -5,18 +5,13 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 
 public class Customer implements Callable<String> {
 
-    private static final Logger LOGGER = LogManager.getLogger();
-
     private String name;
     private String email;
-
-    public static final int BOOKS_LIMIT = 2;
 
     private final Library library = Library.getInstance();
 
@@ -28,19 +23,9 @@ public class Customer implements Callable<String> {
 
     @Override
     public String call(){
-        LOGGER.info("The beginning of book distribution for customer \"{}\"", name);
 
-        Map<Customer, List<LibraryBook>> customerWithBooks = library.getCustomerWithBooks();
-        if(!customerWithBooks.containsKey(this)){
-            customerWithBooks.put(this, new ArrayList<>());
-        }
-
-        List<LibraryBook> books = customerWithBooks.get(this);
-
-        while(books.size() < BOOKS_LIMIT){
-            library.getBooks(this);
-        }
-
+        library.getBook(this);
+  
         return String.format("Customer \"%s\" successfully has been served", name);
     }
 

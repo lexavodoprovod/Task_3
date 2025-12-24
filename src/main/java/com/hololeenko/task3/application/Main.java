@@ -49,7 +49,7 @@ public class Main {
         }
 
         CustomerFactory  customerFactory = new CustomerFactoryImpl();
-        Customer[] customers = new Customer[3];
+        Customer[] customers = new Customer[5];
         int i = 0;
         for(String customerLine: customerLines){
             String[] parts = parser.parse(customerLine);
@@ -62,34 +62,45 @@ public class Main {
 
 
 
-        ExecutorService executor = Executors.newFixedThreadPool(3);
+        ExecutorService executor = Executors.newFixedThreadPool(5);
 
         Customer firstCustomer = customers[0];
         Customer secondCustomer = customers[1];
-        Customer thirdCustomer = customers[2];
-
-        try {
-            Future<String> customer1Future = executor.submit(firstCustomer);
-            String success1 = customer1Future.get();
-            LOGGER.info(success1);
-
-            Future<String> customer2Future = executor.submit(secondCustomer);
-            String success2 = customer2Future.get();
-            LOGGER.info(success2);
-
-            Future<String> customer3Future = executor.submit(thirdCustomer);
-            String success3 = customer3Future.get();
-            LOGGER.info(success3);
-
-            LOGGER.info("My map {}", library.getCustomerWithBooks());
-
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        } finally {
-            executor.shutdown();
-        }
+        Customer thirdCustomer  = customers[2];
+        Customer fourthCustomer = customers[3];
+        Customer fivesCustomer = customers[4];
 
 
+           try {
+               Future<String> customer1Future = executor.submit(firstCustomer);
+//            String success1 = customer1Future.get();
+//            LOGGER.info(success1);
 
-    }
+               Future<String> customer2Future = executor.submit(secondCustomer);
+//            String success2 = customer2Future.get();
+//            LOGGER.info(success2);
+
+               Future<String> customer3Future = executor.submit(thirdCustomer);
+//            String success3 = customer3Future.get();
+//            LOGGER.info(success3);
+
+               Future<String> customer4Future = executor.submit(fourthCustomer);
+//            String success4 = customer4Future.get();
+//            LOGGER.info(success4);
+
+               Future<String> customer5Future = executor.submit(fivesCustomer);
+//            String success5 = customer5Future.get();
+//            LOGGER.info(success5);
+
+
+           } catch (Exception e) {
+               LOGGER.error(e.getMessage());
+           } finally {
+               executor.shutdown();
+           }
+       }
+
+
+
+
 }
